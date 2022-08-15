@@ -11,7 +11,7 @@ Look at leet [leetcode](https://leetcode.com/) and get familiar with methods to 
 
 the [front end interview handbook repo](https://github.com/yangshun/front-end-interview-handbook) has some great advice.
 
-
+This repo about FE interview prep: [https://github.com/SenayYakut/Amazon-Front-end-Engineer-Interview-prep](https://github.com/SenayYakut/Amazon-Front-end-Engineer-Interview-prep)
 ## Algorithms
 
 - Binary Trees

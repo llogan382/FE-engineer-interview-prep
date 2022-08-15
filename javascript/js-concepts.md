@@ -27,3 +27,7 @@ If the Javascript is not compiled (or parsed)properly, it will not run: you will
   console.log('Hello world!');
 }, 1000);
 ```
+
+## Scoping
+
+
