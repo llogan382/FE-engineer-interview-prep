@@ -132,3 +132,65 @@ Can we reduce the surface area of the impurity? Can the side effect pollute the 
 You can wrap the impure function, and only modify the global array by making a copy within the function.
 
 If you cant exrtact the function, or wrap it, or anything else, at least make it obvious to the reader (or, future you, or your teammates, etc. )
+
+If you want to minimize impure functions by using wrappers, make a copy of your globally scoped variables within the function itself.
+
+
+## Function Arguments
+
+A **parameter** is in the function definition.
+An **argument** is what gets passed in on the function call.
+
+the **SHAPE** of a function is the number and types of the items that go into the function, and the number and types of items that are returned from the function. The *shape* of the function is critical.
+
+The more inputs a function has, the harder it is for the function to interact with other functions.
+
+### Higher Order Functions.
+
+What is it? Either:
+1. It receives 1 or more functions as its input
+2. It returns 1 or more functions.
+
+In JS, you can pass as many, or as few parameters to a function. A function can take the shape of one function and adapt it to the shape of another function. Higher order functions help accomplish this.
+
+here is an example:
+```js
+function unary(fn){
+  return function one(arg){
+    return fn(arg);
+  };
+}
+
+function binary(fn){
+  return function two(arg1, arg2){
+    return fn(arg1, arg2);
+  }
+}
+function f(...args){
+  return args;
+}
+
+var g = unary(f);
+
+console.log(g(1,2,3,4)); // [1]
+```
+
+THe goal of functional programming is to look at each of these and be able to identify the shapes of these functions, and know how to make them into higher order functions that can change the shape of functions into a shape that fits.
+
+You are looking for common patterns to fit the shapes together using various utlities, but why is this poor in a codebase?
+
+There is less familiarity with less-recognizable patterns.
+
+## Point Free
+
+Take one of the inputs of a function, and set it as a certain value.
+If two functions both take an argument that has the **same shape**, then they can be interchanged. The following two are the same:
+
+```js
+getPerson(function onPerson(person){
+  return renderPerson(person);
+});
+
+// same as
+getPerson(renderPerson);
+```
