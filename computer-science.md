@@ -125,3 +125,47 @@ Insertion Sort is STABLE (if there are 2 items side by side, they will remain si
 ## Recursion
 
 What if you have a problem that is too big to solve? You break it down into small parts, and then stitch the answers back together.
+
+In Javascript, recursion is a function that calls itself.
+
+**When is recursion useful?** If your problem is smaller versions of the same problem, the answer could lay in recursion.
+
+```js
+function fibonacci(n) {
+  // base case
+  if (n === 2 || n === 1) {
+    return 1;
+  } else if (n <= 0) {
+    return 0;
+  }
+
+  // recursive calls
+  return fibonacci(n - 1) + fibonacci(n - 2);
+}
+```
+
+Recursion isnt the most efficient, but the code can be easy to read.
+
+## Merge Sort
+
+It breaks everything down into an array of 2, and sorts them. Then, it stitches the items back together, after they are sorted.
+
+Most Javascript engines use merge sort under the hood (when using something like .sort)
+Every number gets looked at once, yet the longer it gets, it doesnt mean there are more comparisons.
+If there is recursion, it is likely going to have n(log(n)) as its big O.
+
+# quick sort
+
+Also breaks the array down, with a "pivot"
+
+# Recursion
+
+In short: When a function calls itself.
+
+It can keep code short and DRY. The most important part: It must "return", or it will cause a stack overflow.
+
+# Linked Lists
+
+Just a list of items in order, each with a pointer to the next item.
+You can do quick removal of items in the middle of an array- just move the pointer to the next item.
+The FIND for a linked list is much slower- unless you have a reference to the value.

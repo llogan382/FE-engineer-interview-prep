@@ -9,13 +9,15 @@
 <body>
 This is where I can run some JS code to test the browser APIs. (as opposed to Node APIs)
   <script>
-function printHello(){
-  console.log("hello");
+const myObject = {
+  city: 'Madrid',
+  greet() {
+    console.log(`Greetings from ${this.city}`);
+  }
 }
 
-setTimeout(printHello, 1000);
+myObject.greet(); // Greetings from Madrid
 
-console.log("Me First");
   </script>
 
 </body>

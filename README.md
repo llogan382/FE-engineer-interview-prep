@@ -4,6 +4,19 @@ The items listed are not exhaustive- but simply reflect the front end concepts t
 
 As I find more websites and resources, I plan on listing them here.
 
+# Job Description
+
+The role is for a "FRONT END ENGINEER, AWS Security hub". The job posting includes:
+
+- 3+ years of experience in modern web development with HTML5, CSS3.0, and JavaScript frameworks (React, Redux, Angular, Backbone.js, Knockout.js, etc.)
+- 3+ years of experience with modern JavaScript tooling (Webpack, Gulp, Grunt, etc.)
+- 3+ years of experience in at least one modern dynamic programming language (Ruby, Python, TypeScript, JavaScript)
+
+PREFERRED QUALIFICATIONS:
+
+- Experience translating design mockups and prototypes into working applications
+- Experience building for large-scale and/or mission critical systems.
+- DevOps experience operating the systems you built, including defining, building, and operating the required monitoring systems
 
 ## Resources
 
@@ -75,3 +88,19 @@ JS:
 Create a portfolio of your past projects and list details in the STAR format to gain a competitive edge.
 - While practicing problems, identify patterns and learn how to apply them to new problems. This is a proven way to improve your problem-solving skills.
 - Become well-versed with machine learning concepts and core concepts of a programming language of your choice.
+
+## TODOS:
+
+
+ - [] finish OOP course.
+ - [] review Amazon STAR principles
+ - [] practice leetcode
+ - symbols
+ - sets, maps
+ - weaksets, weakmaps
+ - property getters and setters
+ - generators
+ - proxy and reflect
+ - Cookies
+ - event bubbling
+ - recursion
