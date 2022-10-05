@@ -1,0 +1,3 @@
+[submodule "redux/chores-redux"]
+	path = redux/chores-redux
+	url = https://github.com/stevekinney/chores-redux.git

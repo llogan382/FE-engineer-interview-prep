@@ -1,0 +1,23 @@
+
+}
+
+
+#front-header{
+  position: relative;
+  top: -10rem;
+  color: green;
+  z-index: 99;
+  right: 2rem;
+  height: 0px;
+}
+div.section-title:nth-child(2){
+  position: relative;
+  top: -10rem;
+  color: green;
+  z-index: 99;
+  right: 2rem;
+  height: 0px;
+}
+.front-title-block{
+
+}
