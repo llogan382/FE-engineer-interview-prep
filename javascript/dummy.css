@@ -1,23 +1,15 @@
+h1.interactive-text:nth-child(4)::after{
+  b
+}
+https://40westcreative.com/staging/2379/wp-content/uploads/2022/10/Logo.png
 
+.custom-heading-group::after{
+  content: url('https://40westcreative.com/staging/2379/wp-content/uploads/2022/10/Logo.png')
+}
+.text-interactive > div:nth-child(1)::after{
+  content: url('https://40westcreative.com/staging/2379/wp-content/uploads/2022/10/Logo.png')
 }
 
-
-#front-header{
-  position: relative;
-  top: -10rem;
-  color: green;
-  z-index: 99;
-  right: 2rem;
-  height: 0px;
-}
-div.section-title:nth-child(2){
-  position: relative;
-  top: -10rem;
-  color: green;
-  z-index: 99;
-  right: 2rem;
-  height: 0px;
-}
-.front-title-block{
-
+h1.interactive-text:nth-child(4)::after{
+  content: url('https://40westcreative.com/staging/2379/wp-content/uploads/2022/10/Logo.png')
 }

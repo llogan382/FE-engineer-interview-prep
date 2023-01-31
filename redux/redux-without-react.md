@@ -18,7 +18,12 @@ Some notes from the front end masters course, "Redux Fundamentals".
   - [What do we do when the calculations of the app become complicated?](#what-do-we-do-when-the-calculations-of-the-app-become-complicated)
   - [How to simplify the reducers, so we dont have to spread the state each time?](#how-to-simplify-the-reducers-so-we-dont-have-to-spread-the-state-each-time)
 - [Redux Toolkit](#redux-toolkit)
+  - [Creating a slice of state.](#creating-a-slice-of-state)
+  - [Extra reducers](#extra-reducers)
 - [Asynchronous Actions](#asynchronous-actions)
+- [From the official docs](#from-the-official-docs)
+  - [Getting started](#getting-started)
+- [A slice of state](#a-slice-of-state)
 
 ## Redux Without React
 
@@ -800,8 +805,124 @@ In a SLICE, you have the reducers (mutating state, which uses `immer` under the 
 
 It makes the actions, stores the action types.
 
+### Creating a slice of state.
+
+What happens if we want an action that isnt generated automatically?
+
+What if we want to "listen" to something, in another component?
+
+If you change one slice, add functionality to another slice.
+
+### Extra reducers
+
+These can be added in the slice, after the reducer. Give it a BUILDER
+You can add a slice that can listen to actions on other slices with this approach.
+
+They are basically just listening: if there is an action, it triggers another action.
+
+`extraReducer` adds functionality.
+
+So what is happening in this code?
+
+in the TASK SLICE, we have this in the `reducers`
+```js
+    assignToUser: (state, action) => {
+       const task = state.find((task) => task.id === action.payload.taskId);
+       task.assignedTo = action.payload.humanId;
+    }
+```
+
+In the `humanSlice`, we add this:
+
+```js
+  extraReducers: (builder) => {
+    builder.addCase(taskSlice.actions.assignToUser, (state, action) => {
+      // Iterate through humans, remove the task if it belongs to someone;
+      //Add to the correct human.
+      for (const human of state){
+        if(human.id === action.payload.humanId){
+          human.taskIds.push(action.payload.taskId)
+        } else {
+          human.taskIds = human.taskIds.filter(id => id !== action.payload.taskId)
+        }
+      }
+    })
+  }
+```
+
+Notice how the humanSlice is listening to the `assignToUser` reducer from the `taskSlice` reducer:
+
+`extraReducers: (builder) => {
+    builder.addCase(taskSlice.actions.assignToUser`
 
 
 
 
 ## Asynchronous Actions
+There are lots of ways to implement this.
+
+THUNK is one of them- and pretty darn easy.
+
+Basically, you can dispatch an actions which will eventually dispatch an action.
+Its like an action creator, that can work with promises.
+
+## From the official docs
+
+### Getting started
+
+Start from the top: what is redux, and what do these terms mean?
+
+Redux is a state-management tool that helps you manage state within your javascript application.
+
+React-redux is the version of redux.... you guessed it... for react.
+
+With **react-redux** you have a `<Provider>` component that wraps around your app to make your store, or a place where you *store* your data, avaiable throughout the entire application.
+
+
+React Redux also provudes some special hoos to allow your components to interact witht he store.
+
+For now, I am going to take everythign I learned above, and apply it with the updated notes (here), to build a membership application- where you can keep track of who is a member of your business, and who is not.
+
+## A slice of state
+
+What the heck is this? Lets break it down piece by piece.
+
+State is all of the data in the store: almost like the memory database in the application. The docs call is the "state" of the application- so that is what we will refer to it as.
+
+The slice has **reducer functions**. These tell the app hos to update state with an action.
+
+The ACTIONS are the names of the functions (or methods, or reducers).
+
+Here is the example from the redux docs of the REDUCERS, and how they are created:
+
+```js
+export const counterSlice = createSlice({
+  name: 'counter',
+  initialState: {
+    value: 0,
+  },
+  // These are the REDUCERS: telling how to update the STATE of the application.
+  reducers: {
+    increment: (state) => {
+      state.value += 1
+    },
+    decrement: (state) => {
+      state.value -= 1
+    },
+    incrementByAmount: (state, action) => {
+      state.value += action.payload
+    },
+  },
+})
+```
+
+And here are the ACTIONS, or, the names of the specific functions in the reducer. Again, from the same file as the code snippet above:
+
+```js
+// Action creators are generated for each case reducer function
+export const { increment, decrement, incrementByAmount } = counterSlice.actions
+
+export default counterSlice.reducer
+```
+
+
