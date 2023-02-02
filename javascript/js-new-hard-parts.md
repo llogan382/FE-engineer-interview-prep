@@ -1,3 +1,6 @@
+- [Foundations of JS](#foundations-of-js)
+  - [Asynchronicity.](#asynchronicity)
+- [Asynchronous web browser APIS](#asynchronous-web-browser-apis)
 
 
 # Foundations of JS
@@ -22,7 +25,10 @@ const output = multiplyByTwo(4);
 DECLARE A FUNCTION- creating a function, storing it in global memory.
 What does a function create? A RETURN VALUE.
 Everything gets garbage-cleaned after the function runs.
-The `inputNumber` is known as a PARAMETER. The ARGUMENT is the value passed in.
+The `inputNumber` is known as a *PARAMETER*. The *ARGUMENT* is the value passed in.
+
+Function *parameters* are the names listed in the function definition.
+Function *arguments* are the real values passed to (and received by) the function.
 
 When you return a value, it is available in the GLOBAL EXECUTION CONTEXT.
 
@@ -51,3 +57,45 @@ Each function must complete its execution before continuing. What if a function 
 We need to DELAY the code for running bc we are waiting, but we dont want to block the singular thread. How do we do it?
 
 *ASYNCHRONICITY* is how the internet works. These features are in the BROWSER.
+
+```js
+function display(data){
+console.log(data)
+}
+const dataFromAPI = fetchAndWait('https://twitter.com/will/tweets/1')
+//... user can do NOTHING here !
+//... could be 300ms, could be half a second
+// they're just clicking and getting nothing
+display(dataFromAPI)
+console.log(“Me later!”);
+```
+
+*What is happening above?*
+1. Declare a function called DISPLAY.
+2. the variable DATAFROMAPI will store the result of the function fetchAndWait.
+3. JS is blocked from running until fetchAndWait is completed.
+4. Call the `display` function with the `dataFromApi` value as a parameter.
+5. Console.log the value.
+
+When the slow task completes, it should run the next function.
+But it is untenable
+
+# Asynchronous web browser APIS
+
+In node, they are called *background threads* but in JS, they are called BROWSER APIs.
+
+
+```js
+function printHello(){
+console.log(“Hello”);
+}
+setTimeout(printHello,1000);
+console.log(“Me first!”);
+```
+
+1. Define a function called `printHello` that takes no parameters.
+2. call `setTimeout` with the printHello function, every 1000ms. There are no parens, meaning we are passing the whole function definition.
+3. Then run the `console.log`
+
+setTimeout is a BROWSER API. JS has no timer.
+

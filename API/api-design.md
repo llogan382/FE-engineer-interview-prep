@@ -9,7 +9,6 @@
 - [Rest Routes with Express.](#rest-routes-with-express)
 - [Routers](#routers)
 - [Routes and Controllers](#routes-and-controllers)
- -
 
 
 ## What is an API?

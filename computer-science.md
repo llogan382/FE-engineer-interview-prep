@@ -1,3 +1,16 @@
+- [Complete intro to Computer Science.](#complete-intro-to-computer-science)
+  - [Big O Notation.](#big-o-notation)
+  - [Why does it matter?](#why-does-it-matter)
+  - [Tradeoffs](#tradeoffs)
+  - [Bubble Sorts](#bubble-sorts)
+- [Insertion sort](#insertion-sort)
+  - [Recursion](#recursion)
+  - [Merge Sort](#merge-sort)
+- [quick sort](#quick-sort)
+- [Recursion](#recursion-1)
+- [Linked Lists](#linked-lists)
+
+
 # Complete intro to Computer Science.
 
 This is a course taught by Brian Holt covering some of the basics of Computer Science, focused towards Front End Engineers. Some of the basics of computer science will be taught here, the basics of some of the algorithms.

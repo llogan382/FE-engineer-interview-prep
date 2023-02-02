@@ -1,3 +1,23 @@
+- [What is OOP in JS?](#what-is-oop-in-js)
+- [__proto__](#proto)
+- [What if our code was all bundled together?](#what-if-our-code-was-all-bundled-together)
+  - [Create objects using a function.](#create-objects-using-a-function)
+  - [How to NOT use functions on every user.](#how-to-not-use-functions-on-every-user)
+  - [How to NOT use functions on every user.](#how-to-not-use-functions-on-every-user-1)
+  - [The NEW keyword](#the-new-keyword)
+- [New](#new)
+  - [CLASSES](#classes)
+  - [Implicit argument](#implicit-argument)
+- [Class keyword](#class-keyword)
+  - [A core aspect is INHERITANCE.](#a-core-aspect-is-inheritance)
+  - [The CLASS keyword](#the-class-keyword)
+  - [__proto__](#proto-1)
+- [New keyword, and share functions is PROTOTYPE](#new-keyword-and-share-functions-is-prototype)
+- [Subclassing.](#subclassing)
+- [Factory Function approach](#factory-function-approach)
+
+
+
 # What is OOP in JS?
 
 In JS, everything is an object. OOP refers to putting functions in an object, and accessting them with the built-in feature called **PROTOTYPE**. This is automatic and appears in every JS object. You can access it in the browser tools by typing `myObject.` and it will auto-fill with some of the default options:

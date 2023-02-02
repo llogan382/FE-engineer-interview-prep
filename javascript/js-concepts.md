@@ -1,3 +1,8 @@
+- [Javascript Concepts Explained](#javascript-concepts-explained)
+  - [Closures (and lexical scoping)](#closures-and-lexical-scoping)
+- [Scoping](#scoping)
+
+
 ## Javascript Concepts Explained
 
 Below is a list of concepts from Javascript explained a little more thoroughly.

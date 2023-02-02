@@ -1,3 +1,22 @@
+- [Declarations merging](#declarations-merging)
+- [Namespace](#namespace)
+  - [Classes](#classes)
+  - [Modules](#modules)
+  - [Webpack, parcel](#webpack-parcel)
+  - [Type Queries](#type-queries)
+  - [TypeOf](#typeof)
+  - [Conditional Types](#conditional-types)
+  - [Extract and Exclude](#extract-and-exclude)
+  - [Inference with Conditional Types](#inference-with-conditional-types)
+- [Indexed Access Types](#indexed-access-types)
+- [Mapped Types](#mapped-types)
+- [Use with Indexed Access Types](#use-with-indexed-access-types)
+- [Picking and Mapping Modifiers](#picking-and-mapping-modifiers)
+- [Template Literal Types](#template-literal-types)
+  - [Filtering properties.](#filtering-properties)
+
+
+
 # Declarations merging
 
 A TYPE and a variable can have the same name. For example:

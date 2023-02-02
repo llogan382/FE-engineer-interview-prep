@@ -1,3 +1,12 @@
+- [Notes from the course taught by Will Sentance, titled Javascript: The new hard parts.](#notes-from-the-course-taught-by-will-sentance-titled-javascript-the-new-hard-parts)
+  - [Javascript: The New Hard Parts](#javascript-the-new-hard-parts)
+  - [Web Browser Features](#web-browser-features)
+  - [Callback Queue](#callback-queue)
+  - [What is the difference between a senior level, and a mid-level?](#what-is-the-difference-between-a-senior-level-and-a-mid-level)
+  - [Promises](#promises)
+  - [Background Browser work: Fetch](#background-browser-work-fetch)
+  - [How do deferred functions get back to the Javascript queue?](#how-do-deferred-functions-get-back-to-the-javascript-queue)
+  - [Iterators](#iterators)
 
 # Notes from the course taught by Will Sentance, titled Javascript: The new hard parts.
 
