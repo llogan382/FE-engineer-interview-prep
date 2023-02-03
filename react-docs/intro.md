@@ -12,3 +12,4 @@ How do we structure state to be as optimal as possible?
 2. Avoid contradictions. Can any of the pieces of state "oppose", or work against another piece (they cannot be either/or at the same time).
 3. Can it be calculated? If it can be calculated from the props, it should not be put into the components state.
 4. Dont duplicate. If the same data is used in various places, or nested, it cant remain in sync.
+5. Keep it flat. Nested state is hard to suplicate. 
