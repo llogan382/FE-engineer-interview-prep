@@ -6,6 +6,9 @@
   - [Console Error and process stderr](#console-error-and-process-stderr)
 - [Command line scripts](#command-line-scripts)
   - [Setting up a command line script.](#setting-up-a-command-line-script)
+  - [Command line argumants](#command-line-argumants)
+  - [How to handle arguments](#how-to-handle-arguments)
+  - [Reading files with Path](#reading-files-with-path)
 
 
 # Digging into Node.js
@@ -103,3 +106,123 @@ function pringHelp(){
 
 
 ```
+
+
+## Command line argumants
+
+There is a node package that can help to add arguments that are passed into the command line, a package called "minimist".
+
+```js
+#!/usr/bin/env node
+
+"use strict";
+
+var args = require("minimist")(process.argv.slice(2),{
+	boolean: ["help","in",],
+	string: ["file",],
+});
+
+console.log(args)
+
+
+```
+
+Running the command
+`node ./index.js --help=nothing --file`
+
+will give the following result:
+
+`{ _: [], help: true, in: false, file: '' }`
+
+
+## How to handle arguments
+
+At this point, arguments are being passed in, but how can you work with the arguments passed in?
+
+Append the following to the `args` listed above, so the complete code would look like the following:
+
+```js
+#!/usr/bin/env node
+
+"use strict";
+
+var args = require("minimist")(process.argv.slice(2),{
+	boolean: ["help","in",],
+	string: ["file",],
+});
+
+
+function printHelp() {
+	console.log("ex1 usage:");
+	console.log("");
+	console.log("--help                      print this help");
+	console.log("-, --in                     read file from stdin");
+	console.log("--file={FILENAME}           read file from {FILENAME}");
+	console.log("");
+	console.log("");
+}
+
+function error(err,showHelp = false) {
+	process.exitCode = 1;
+	console.error(err);
+	if (showHelp) {
+		console.log("");
+		printHelp();
+	}
+}
+if (args.help || process.argv.length <= 2) {
+	error(null,/*showHelp=*/true);
+}
+else if (args.file) {
+	console.log(args.file)
+} else {
+    error("Usage incorrect.",/*showHelp=*/true);
+  }
+console.log(args)
+```
+
+With this, if you run the following script:
+`node ./index.js --help=nothing --file="hello"`
+
+You will get the following output:
+```
+index.js usage:
+
+--help                      print this help
+-, --in                     read file from stdin
+--file={FILENAME}           read file from {FILENAME}
+
+
+{ _: [], help: true, in: false, file: 'hello' }
+```
+
+
+## Reading files with Path
+
+Node has a built-in package called `path`.
+
+Add the following to the file:
+
+```js
+var fs = require("fs");
+
+  function processFile(filepath) {
+    var contents = fs.readFileSync(filepath);
+    console.log(contents)
+  }
+```
+and run the following command:
+
+`node ./index.js --file=dummy.md`
+
+the response will be something like this:
+```
+<Buffer 0a 2d 20 5b 57 68 61 74 20 69 73 20 61 6e 20 41 50 49 3f 5d 28 23 77 68 61 74 2d 69 73 2d 61 6e 2d 61 70 69 29 0a 2d 20 5b 52 65 73 74 2e 5d 28 23 72 ... 3532 more bytes>
+```
+
+If the `console.log` is changed to `process.stdout.write`, instead of a buffer being passed, the contents will be passed and the binary will be interpreted.
+
+Key takeaway?
+
+*console.log()* will run different steps of processing, and be marginally slower.
+
